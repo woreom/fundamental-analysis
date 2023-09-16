@@ -3,9 +3,8 @@ import pandas as pd
 import os
 import pickle
 
-import seaborn as sns
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+from plotly.offline import plot
 import pandas as pd
 
 import warnings
@@ -157,6 +156,9 @@ def plot_correlation_heatmaps(df1, df2, start_date, end_date):
             yaxis=dict(title='Columns of DataFrame')
         )
 
+        # html file
+        plot(fig, filename=f'{method}_heatmap.html')
+        print(f"{method} heatmap saved as {method}_heatmap.html")
         fig.show()
 
         
